@@ -17,7 +17,7 @@ If you want a preprint describing the ADHD 200 Sample preprocessed repository in
 
 ### TODO
 
-With all due respect to wise man who said "Don't Let the Perfect Be the Enemy of the Good," this code is currently **very, very bad** and much needs to be done. In particular:
+With all due respect to the wise man who said "Don't Let the Perfect Be the Enemy of the Good," this code is currently **very, very bad** and much needs to be done. In particular:
 * Take out all the hardcoded stuff so code is shareable/reusable/etc.
 * Make backup copy of qa report CSV file before overwriting
 * Add functionality so that raters can pause and come back to rating and not have to start at beginning
