@@ -30,9 +30,13 @@ n_imgs=${#anat_files[@]}
 
 afni -yesplugouts &> /dev/null &
 
-# TODO: Replace hardcoded path
-printf "%s\n" id status anat func | paste -sd "," > \
-  ${OUTPUT_DIR}/qc_report_${RATER}.csv 
+if [ ! -f ${OUTPUT_DIR}/qc_report_${RATER}.csv ]; then
+  echo "Creating spreadsheet for QA ratings and comments"
+  printf "%s\n" id status anat func | paste -sd "," > \
+    ${OUTPUT_DIR}/qc_report_${RATER}.csv 
+else
+  echo "QA report spreadsheet already exists"
+fi
 
 for (( i=0; i<$n_imgs; i++ )); do  # TODO: Make this better
 
