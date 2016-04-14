@@ -60,6 +60,11 @@ fi
 #     # presentation stuff goes here
 # done
 
+# NB: The following was developed in a sandbox where all and only the structural 
+# and mean functional images from the KKI site were in the same directory with this
+# script.
+# TODO: Replace all this with something along the lines of the above loop over the
+# individual subject subdirectories in the full, nested directory structure. 
 for (( i=0; i<$n_imgs; i++ )); do
 
   # TODO: Don't really know enough AFNI to be sure that this is doing what it
