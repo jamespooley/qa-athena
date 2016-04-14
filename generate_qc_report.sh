@@ -29,23 +29,32 @@ n_imgs=${#anat_files[@]}
 
 afni -yesplugouts &> /dev/null &
 
-# TODO: make backup copy of existing file before overwriting
 if [ ! -f ${OUTPUT_DIR}/qc_report_${RATER}.csv ]; then
 
   echo ""
   echo "Creating spreadsheet for QA ratings and comments"
   echo ""
+
   printf "%s\n" id status anat func | paste -sd "," > \
     ${OUTPUT_DIR}/qc_report_${RATER}.csv
 
 else
+
   echo ""
-  echo "QA report spreadsheet already exists!"
+  echo "QA report spreadsheet already exists! Creating backup copy"
+  echo "before overwriting..."
   echo ""
+
+  cp ${OUTPUT_DIR}/qc_report_${RATER}.csv \
+     ${OUTPUT_DIR}/qc_report_${RATER}_backup.csv
+
 fi
 
 for (( i=0; i<$n_imgs; i++ )); do
 
+  # TODO: Don't really know enough AFNI to be sure that this is doing what it
+  # should be doing ... but it seems to be sort of in the ballpark of where
+  # it needs to be.
   plugout_drive -com "OPEN_WINDOW A.axialimage geom=800x800+416+344" \
                 -com "SWITCH_UNDERLAY A.$(basename ${anat_files[$i]})" \
                 -com "CLOSE_WINDOW A.sagittalimage" \
