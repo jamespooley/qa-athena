@@ -50,6 +50,12 @@ else
 
 fi
 
+# assignments_info=james.txt
+# assignments_file=($(cut -f 1 $assignments_info))
+# for assignment in ${assignments_file[@]}; do
+#     echo $assignment
+# done
+
 for (( i=0; i<$n_imgs; i++ )); do
 
   # TODO: Don't really know enough AFNI to be sure that this is doing what it
