@@ -13,6 +13,16 @@ Download the data [here](http://www.nitrc.org/plugins/mwiki/index.php/neuroburea
 
 ### Other Resources
 
-If you want a preprint describing the ADHD 200 Sample preprocessed repository in more detail, click [here](http://biorxiv.org/content/biorxiv/early/2016/01/17/037044.full.pdf) 
+If you want a preprint describing the ADHD 200 Sample preprocessed repository in more detail, click [here](http://biorxiv.org/content/biorxiv/early/2016/01/17/037044.full.pdf)
+
+### TODO
+
+This code is currently very bad and much needs to be done. In particular:
+* Take out all the hardcoded stuff so code so code is sharable/reusable/etc.
+* Make backup copy of qa report CSV file before overwriting
+* Add functionality so that raters can pause and come back to rating and not have to start at beginning
+* Read in file of images to be rated as opposed to reading everything in current directory
+* Learn more about AFNI
+* etc.
 
 
