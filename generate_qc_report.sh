@@ -9,18 +9,17 @@ OUTPUT_DIR=~/Desktop
 if [ $# -ne 1 ]; then
   echo ""
   echo "ERROR: MISSING INPUT"
-  echo "  Usage: $0 <YOUR NAME>"
+  echo "  Usage: $0 <YOUR FIRST NAME>"
   echo ""
   exit 1
 fi
 
 RATER=$1
-SESSIONS=$2 # DON'T USE THIS YET
 
-MNI152=avg152T1_brain.nii.gz
-
+# TODO: Check if this exists
 #ln -s /usr/share/fsl/5.0/data/standard/avg152T1.nii.gz .  # Brain + skull
 #ln -s /usr/share/fsl/5.0/data/standard/avg152T1_brain.nii.gz . # Skull-stripped
+MNI152=avg152T1_brain.nii.gz  # Better way to handle this
 
 anat_files=($(find . -name "wssd*anat.nii.gz" | sort))
 func_files=($(find . -name "wmean*" | sort))
@@ -29,14 +28,14 @@ n_imgs=${#anat_files[@]}
 
 afni -yesplugouts &> /dev/null &
 
-if [ ! -f ${OUTPUT_DIR}/qc_report_${RATER}.csv ]; then
+if [ ! -f ${OUTPUT_DIR}/qc_report_${RATER,,}.csv ]; then
 
   echo ""
   echo "Creating spreadsheet for QA ratings and comments"
   echo ""
 
   printf "%s\n" id status anat func | paste -sd "," > \
-    ${OUTPUT_DIR}/qc_report_${RATER}.csv
+    ${OUTPUT_DIR}/qc_report_${RATER,,}.csv
 
 else
 
@@ -45,15 +44,20 @@ else
   echo "before overwriting..."
   echo ""
 
-  cp ${OUTPUT_DIR}/qc_report_${RATER}.csv \
-     ${OUTPUT_DIR}/qc_report_${RATER}_backup.csv
+  cp ${OUTPUT_DIR}/qc_report_${RATER,,}.csv \
+     ${OUTPUT_DIR}/qc_report_${RATER,,}_backup.csv
 
 fi
 
-# assignments_info=james.txt
-# assignments_file=($(cut -f 1 $assignments_info))
-# for assignment in ${assignments_file[@]}; do
-#     echo $assignment
+# TODO: This is the general loop structure I'm wanting in place of the structure 
+# below. Will need to figure out how to deal with this given AFNI's preference
+# for all data being in the same directory. Soft links etc.
+#
+# assignments_file=$2
+# assignments=($(cut -f 1 $assignments_file))
+# n_images=${#assignments[@]}
+# for assignment in ${assignments[@]}; do
+#     # presentation stuff goes here
 # done
 
 for (( i=0; i<$n_imgs; i++ )); do
@@ -61,6 +65,8 @@ for (( i=0; i<$n_imgs; i++ )); do
   # TODO: Don't really know enough AFNI to be sure that this is doing what it
   # should be doing ... but it seems to be sort of in the ballpark of where
   # it needs to be.
+  # TODO: Saggital views on each of these
+  # TODO: Add some SET_THRESHOLD [c.]val [dec] to this??
   plugout_drive -com "OPEN_WINDOW A.axialimage geom=800x800+416+344" \
                 -com "SWITCH_UNDERLAY A.$(basename ${anat_files[$i]})" \
                 -com "CLOSE_WINDOW A.sagittalimage" \
@@ -73,8 +79,6 @@ for (( i=0; i<$n_imgs; i++ )); do
                 -com "SEE_OVERLAY B.+" \
                 -com "SET_PBAR_ALL B.-99 1.0 Spectrum:yellow_to_cyan+gap" \
                 -quit
-
-  # TODO: Add some SET_THRESHOLD [c.]val [dec]
 
   echo "--------------------------------------------------------------------"
   echo ""
