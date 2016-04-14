@@ -9,7 +9,7 @@ def get_subject_ids(site):
             if os.path.isdir(os.path.join(site, subject))]
 
 def assign_images(subjects, n_raters, n_ratings=3):
-    """Assigns """
+    """Assigns images to QA raters as evenly as possible"""
 
     to_rate = subjects * n_ratings
     random.shuffle(to_rate)
