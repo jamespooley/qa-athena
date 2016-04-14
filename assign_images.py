@@ -1,5 +1,6 @@
 from __future__ import division
 import os
+import glob
 import random
 import csv
 
@@ -27,6 +28,13 @@ def assign_images(subjects, n_raters, n_ratings=3):
 
 if __name__ == '__main__':
     raters = ['james', 'caroline', 'amalia', 'ben', 'john']
+    random.shuffle(raters)
+
+    # This assumes you're in a directory with the following subdirectories:
+    # ['Peking_3/', 'OHSU/', 'NeuroIMAGE/', 'Peking_2/', 'Pittsburgh/', 
+    # 'WashU/', 'KKI/', 'NYU_1/', 'NYU_2/', 'NYU_4/', 'NYU_3/', 
+    # 'Peking_1/', 'Brown/']
+    sites = glob.glob('*/')
 
     subjects = []
     for site in sites:
@@ -34,7 +42,7 @@ if __name__ == '__main__':
 
     assignments = assign_images(subjects, n_raters=len(raters))
 
-    for i, rater in enumerate(random.shuffle(raters)):
-        with open('{0}.csv'.format(rater), 'w') as f:
-            writer = csv.writer(f, quoting=csv.QUOTE_ALL)
+    for i, rater in enumerate(raters):
+        with open('{0}.txt'.format(rater), 'w') as f:
+            writer = csv.writer(f, quoting=csv.QUOTE_ALL, delimiter='\n')
             writer.writerow(assignments[i])
