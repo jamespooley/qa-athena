@@ -44,5 +44,5 @@ if __name__ == '__main__':
 
     for i, rater in enumerate(raters):
         with open('{0}.txt'.format(rater), 'w') as f:
-            writer = csv.writer(f, quoting=csv.QUOTE_ALL, delimiter='\n')
+            writer = csv.writer(f, quoting=csv.QUOTE_NONE, delimiter='\n')
             writer.writerow(assignments[i])
