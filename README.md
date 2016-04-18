@@ -3,7 +3,7 @@ Quality assessment of Athena pipeline applied to ADHD 200 Sample
 
 ### Data
 
-Download the data [here](http://www.nitrc.org/plugins/mwiki/index.php/neurobureau:AthenaPipeline)
+Download the and read about data [here](http://www.nitrc.org/plugins/mwiki/index.php/neurobureau:AthenaPipeline)
 
 ### AFNI Stuff
 
@@ -19,9 +19,7 @@ If you want a preprint describing the ADHD 200 Sample preprocessed repository in
 
 With all due respect to the wise man who said "Don't Let the Perfect Be the Enemy of the Good," this code is currently **very, very bad** and much needs to be done. In particular:
 * Take out all the hardcoded stuff so code is shareable/reusable/etc.
-* Make backup copy of qa report CSV file before overwriting
 * Add functionality so that raters can pause and come back to rating and not have to start at beginning
-* Read in file of images to be rated as opposed to reading everything in current directory
 * Learn *a lot* more about AFNI ... and neuroimaging. Quickly. That would be nice.
 * etc.
 
