@@ -14,7 +14,7 @@ Quality assessment of Athena pipeline applied to the Athena pipeline-processed A
 
 ### Data
 
-You can download and read about data [here](http://www.nitrc.org/plugins/mwiki/index.php/neurobureau:AthenaPipeline). If you want even more detail/context, there's a [preprint](http://biorxiv.org/content/biorxiv/early/2016/01/17/037044.full.pdf) describing the ADHD-200 Sample preprocessed repository in more detail.
+You can download and read about the data [here](http://www.nitrc.org/plugins/mwiki/index.php/neurobureau:AthenaPipeline). If you want even more detail/context, there's a [preprint](http://biorxiv.org/content/biorxiv/early/2016/01/17/037044.full.pdf) describing the ADHD-200 Sample preprocessed repository in more detail.
 
 ### AFNI Stuff
 
