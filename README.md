@@ -27,7 +27,7 @@ If you want a preprint describing the ADHD 200 Sample preprocessed repository in
 With all due respect to the wise man who said "Don't Let the Perfect Be the Enemy of the Good," this code is currently **very, very bad** and much needs to be done. In particular:
 * Take out all the hardcoded stuff so code is shareable/reusable/etc.
 * Add functionality so that raters can pause and come back to rating and not have to start at beginning
-* Learn *a lot* more about AFNI ... and neuroimaging. Quickly. That would be nice.
+* Learn *a lot* more about AFNI ... and neuroimaging. Quickly. That would be nice. Example: AFNI is currently giving me problems with reading symbolic links to the relevant images, so a lot of inefficient copying of data is happening. Don't know why AFNI is doing this.
 * etc.
 
 
