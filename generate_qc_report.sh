@@ -34,8 +34,8 @@ else
   echo "QA report spreadsheet already exists! Creating backup copy"
   echo "before overwriting..."
   echo ""
-  cp ${QA_REPORT_DIR}/qa_report_${rater}.csv \
-     ${QA_REPORT_DIR}/qa_report_${rater}_incomplete.csv
+  cp ${QA_REPORT_DIR}/qc_report_${rater}.csv \
+     ${QA_REPORT_DIR}/qc_report_${rater}_incomplete.csv
 fi
 
 
