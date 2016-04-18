@@ -3,7 +3,7 @@ Quality assessment of Athena pipeline applied to the Athena pipeline-processed A
 
 ### Usage
 
-* Place `generate_qc_report.sh` in a directory with all the structural and functional images and `<YOUR FIRST NAME>.txt`, a file that contains the IDs of the images you've been assigned to rate.
+* Place `generate_qc_report.sh` in a directory with all the structural and functional images and `<YOUR FIRST NAME>.txt`, a file that contains the IDs of the images you've been assigned (randomly by `assign_images.py`) to rate.
 * `$ chmod 755 generate_qc_report.sh`
 * `$ ./generate_qc_report.sh <YOUR FIRST NAME>.txt`
 * Grab your favorite beverage, sit back and relax, and start rating the quality of structural and functional coregistration of the Athena pipeline-processed images.
