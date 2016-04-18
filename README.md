@@ -7,6 +7,7 @@ Quality assessment of Athena pipeline applied to the Athena pipeline-processed A
 * `$ chmod 755 generate_qc_report.sh`
 * `$ ./generate_qc_report.sh <YOUR FIRST NAME>.txt`
 * Grab your favorite beverage, sit back and relax, and start rating the quality of structural and functional coregistration of the Athena pipeline-processed images.
+* **NB:** Do not exit the program after starting it! Currently, you can't pause and restart where you left off. When you want to take a break, just leave the program running in the background.
 
 ### Data
 
