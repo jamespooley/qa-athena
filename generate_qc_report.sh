@@ -41,10 +41,11 @@ fi
 
 for subject_id in ${assignments[@]}; do
 
-  # subject_id=$(basename image_dir)
   anat_file="wssd${subject_id}_session_1_anat.nii.gz"
   func_file="wmean_mrda${subject_id}_session_1_rest_1.nii.gz"
 
+  # NB: QA script only deals with session/scan 1/1. Not dealing with repeat
+  # functional scans at all.
   if [ -f $anat_file ] && [ -f $func_file ]; then
 
 	  plugout_drive -com "OPEN_WINDOW A.axialimage geom=800x800+416+344" \
@@ -107,6 +108,7 @@ for subject_id in ${assignments[@]}; do
 
 	  fi
 
+      # Write quality assessment to rater's output file.
 	  printf "%s\n" "$subject_id" "${quality^^}" "${anat^^}" "${func^^}" | paste -sd "," \
 	    >> ${QA_REPORT_DIR}/qc_report_${rater}.csv
 	  prompt_user -pause "Click OK to move to next image"
