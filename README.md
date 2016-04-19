@@ -1,7 +1,7 @@
 # qa-athena
 Quality assessment of Athena pipeline applied to the Athena pipeline-processed ADHD-200 Sample
 
-### Usage
+### Instructions
 
 * Place `generate_qc_report.sh` in a directory with all the structural and functional images and `<YOUR FIRST NAME>.txt`, a file that contains the IDs of the images you've been assigned (randomly by `assign_images.py`) to rate. The files needed for everything to run properly include the following [NB: This code only accounts for session/scan 1/1, not, e.g., session/scan 1/2 or 2/1]:
   1. Structural files: `wssd*_session_session_1_anat.nii.gz`
