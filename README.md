@@ -5,7 +5,7 @@ Quality assessment of Athena pipeline applied to the Athena pipeline-processed A
 
 * Place `generate_qc_report.sh` in a directory with all the structural and functional images and `<YOUR FIRST NAME>.txt`, a file that contains the IDs of the images you've been assigned (randomly by `assign_images.py`) to rate. [**NB: This code only accounts for images from session/scan 1/1, not, e.g., session/scan 1/2 or 2/1.**] You'll need to `cp` the files into whatever directory you run the script from. The files needed for everything to run properly include the following:
   1. Structural files: `wssd*_session_session_1_anat.nii.gz`
-  2. Functional files: `wmean_mrda*_session_session_1_rest_scan_1.nii.gz`
+  2. Functional files: `wmean_mrda*_session_1_rest_scan_1.nii.gz`
   3. Anatomical template file: Symbolic link to FSL's file for the MNI152 template or a copy of the MNI152 template. [NB: Improving how this is done is on my TODO list.]
 * `$ chmod 755 generate_qc_report.sh`
 * `$ ./generate_qc_report.sh <YOUR FIRST NAME>.txt`
