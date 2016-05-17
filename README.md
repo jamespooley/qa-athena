@@ -29,7 +29,5 @@ With all due respect to the wise man who said "Don't Let the Perfect Be the Enem
 * Add functionality so that raters can pause and come back to rating and not have to start at beginning
 * Split up the structural and functional coregistration QA?
 * Take out all the hardcoded stuff so code is shareable/reusable/etc.
-* Learn *a lot* more about AFNI ... and neuroimaging. Quickly. That would be nice. Example: AFNI is currently giving me problems with reading symbolic links to the relevant structural/functional image files, so a lot of inefficient copying of data is happening. Don't know why AFNI is doing this.
-* etc.
 
 
